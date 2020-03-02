@@ -15,6 +15,7 @@
     <bean id="objectsAgesController" class="com.gcplot.controllers.gc.ObjectsAgesController"/>
     <bean id="adminController" class="com.gcplot.controllers.AdminController"/>
     <bean id="connectorController" class="com.gcplot.controllers.ConnectorController">
+        <property name="connectorS3Endpoint" value="${s3.connector.endpoint:}"/>
         <property name="connectorS3Base" value="${s3.connector.path.base:}"/>
         <property name="connectorS3Bucket" value="${s3.connector.bucket:}"/>
         <property name="connectorS3AccessKey" value="${s3.connector.access.key:}"/>

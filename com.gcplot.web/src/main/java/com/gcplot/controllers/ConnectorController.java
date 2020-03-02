@@ -20,6 +20,7 @@ public class ConnectorController extends Controller {
     private String connectorS3AccessKey;
     private String connectorS3SecretKey;
     private String connectorS3Region;
+    private String connectorS3Endpoint;
 
     @PostConstruct
     public void init() {
@@ -41,8 +42,12 @@ public class ConnectorController extends Controller {
      * Require Auth (token)
      */
     public void getInternalConnectorSettings(RequestContext ctx) {
-        ctx.response(new ConnectorSettingsMessage(connectorS3Bucket, connectorS3Base, connectorS3AccessKey,
+        ctx.response(new ConnectorSettingsMessage(connectorS3Endpoint, connectorS3Bucket, connectorS3Base, connectorS3AccessKey,
                 connectorS3SecretKey, connectorS3Region));
+    }
+
+    public void setConnectorS3Endpoint(String connectorS3Endpoint) {
+        this.connectorS3Endpoint = connectorS3Endpoint;
     }
 
     public void setConnectorS3Base(String connectorS3Base) {
